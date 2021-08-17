@@ -1,24 +1,18 @@
 {
   "extends": [
     "react-app",
-    "react-app/jest"
+    "react-app/jest",
+    "plugin:prettier/recommended"
   ],
   "rules": {
     "no-console": "warn",
-    "quotes": [
+    "prettier/prettier": [
       "error",
-      "single",
       {
-        "avoidEscape": true
+        "singleQuote": true,
+        "jsxSingleQuote": true,
+        "trailingComma": "all"
       }
-    ],
-    "jsx-quotes": [
-      "error",
-      "prefer-single"
-    ],
-    "indent": [
-      "error",
-      2
     ]
   }
 }
