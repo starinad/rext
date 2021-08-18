@@ -60,10 +60,16 @@ workflows:
   version: 2
   build:
     jobs:
-      - code_checks
+      - code_checks:
+          filters:
+            tags:
+              only: /.*/
       - testing:
           requires:
             - code_checks
+          filters:
+            tags:
+              only: /.*/
       - deploy:
           requires:
             - testing
@@ -71,3 +77,5 @@ workflows:
             branches:
               only:
                 - master
+            tags:
+              only: /.*/
