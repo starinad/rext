@@ -47,6 +47,14 @@ jobs:
     steps:
       - setup_environment
       - run_tests
+  deploy:
+    executor: default
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: "Test"
+          command: echo 'Implement later'
 
 workflows:
   version: 2
@@ -56,3 +64,10 @@ workflows:
       - testing:
           requires:
             - code_checks
+      - deploy:
+          requires:
+            - testing
+          filters:
+            branches:
+              only:
+                - master
