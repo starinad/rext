@@ -1,14 +1,21 @@
-import { Route, Switch } from 'react-router-dom';
-import HomePage from './pages/home-page/home-page.component';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import Header from './components/header/header.component';
+import Footer from './components/footer/footer.component';
 
-import './App.scss';
+import HomePage from './pages/home-page/home-page.component';
 
 function App() {
   return (
-    <div className='App'>
-      <Switch>
-        <Route exact path='/' component={HomePage}></Route>
-      </Switch>
+    <div className='d-flex flex-column vh-100'>
+      <Header />
+      <div className='flex-grow-1'>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path='/' component={HomePage}></Route>
+          </Switch>
+        </BrowserRouter>
+      </div>
+      <Footer />
     </div>
   );
 }

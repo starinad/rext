@@ -1,6 +1,6 @@
 const HomePage = () => (
   <div className='home-page'>
-    <p>Test</p>
+    <p>Content</p>
   </div>
 );
 
