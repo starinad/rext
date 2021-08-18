@@ -34,7 +34,7 @@ commands:
     steps:
       - run:
           name: "Test"
-          command: "npm run test"
+          command: "npm run test:nowatch"
   run_deploy:
     steps:
       - run:
@@ -80,5 +80,8 @@ workflows:
           requires:
             - testing
           filters:
+            branches:
+              only:
+                - master
             tags:
               only: /.*/
