@@ -1,9 +1,14 @@
+import { Route, Switch } from 'react-router-dom';
+import HomePage from './pages/home-page/home-page.component';
+
 import './App.scss';
 
 function App() {
   return (
     <div className='App'>
-      <h1>Test</h1>
+      <Switch>
+        <Route exact path='/' component={HomePage}></Route>
+      </Switch>
     </div>
   );
 }
