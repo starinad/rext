@@ -34,7 +34,15 @@ commands:
     steps:
       - run:
           name: "Test"
-          command: "npm run test"
+          command: "npm run test:nowatch"
+  run_deploy:
+    steps:
+      - run:
+          name: "Build"
+          command: "npm run build"
+      - run:
+          name: "Deploy to Firebase"
+          command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
 
 jobs:
   code_checks:
@@ -51,10 +59,8 @@ jobs:
     executor: default
     working_directory: ~/repo
     steps:
-      - checkout
-      - run:
-          name: "Test"
-          command: echo 'Implement later'
+      - setup_environment
+      - run_deploy
 
 workflows:
   version: 2
