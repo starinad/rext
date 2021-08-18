@@ -74,5 +74,8 @@ workflows:
           requires:
             - testing
           filters:
+            branches:
+              only:
+                - master
             tags:
               only: /.*/
