@@ -20,7 +20,7 @@ commands:
             - *npm_cache_full
             - *npm_cache_branch
             - *npm_cache_repo
-      - run: npm ci
+      - run: npm ci --prefer-offline
       - save_cache:
           key: *npm_cache_full
           paths:
